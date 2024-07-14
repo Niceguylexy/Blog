@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+ 
+ <!-- Blog cards section -->
+        <div class="container">
+            <h2 class="my-4">Recent posts</h2>
+            <hr>
+            
+            <div class="row">
+                {% for posts in post %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" style="height: 10cm;" src="{{posts.image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{posts.title}}</h5>
+                            <p class="card-text">{{posts.description}}</p>
+                            <a href="{% url 'detail' posts.slug %}" class="btn btn-primary">Read More &rarr;</a> 
+                            <br>
+                            <p class="card-text"><b>Posted by:</b> {{posts.author}}</p>
+                            <p class="card-text"><b>Posted on:</b> {{posts.date_posted}}</p>
+                        </div>
+                     </div>
+                     
+                </div>
+                {% endfor %}
+        </div>
+
+        <!-- Sidebar section -->
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="my-4">Recent posts</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">Blog post 1</li>
+                        <li class="list-group-item">Blog post 2</li>
+                        <li class="list-group-item">Blog post 3</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="my-4">Categories</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">Category 1</li>
+                        <li class="list-group-item">Category 2</li>
+                        <li class="list-group-item">Category 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    {% endblock %}

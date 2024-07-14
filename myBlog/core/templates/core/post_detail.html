@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="card-body">
+    <img style="height: 10cm; width: 20cm;" src="{{post.image.url}}" alt="">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+
+</div>
+
+{% endblock %}
